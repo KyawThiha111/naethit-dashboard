@@ -23,10 +23,6 @@ import { ChevronLeft } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ROUTE_PATH } from "@/constants/route";
 import { useGetCataQuery } from "@/api/endpoints/blogcata.api";
-const categories = [
-  { title: "Articles", value: "articles" },
-  { title: "Events", value: "events" },
-];
 
 export default function BlogEditPage() {
   const navigate = useNavigate();

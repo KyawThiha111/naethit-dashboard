@@ -1,0 +1,3 @@
+type VerifyFormType = {
+  tokencode: string;
+};

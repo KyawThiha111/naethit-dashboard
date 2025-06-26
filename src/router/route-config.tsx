@@ -33,7 +33,10 @@ import {
   ResetPasswordPage,
   ResetPasswordVerifyPage,
   RequestPage,
-  AddCataPage
+  AddCataPage,
+  ShowAdminPage,
+  CreateAccountPage,
+  VerifyCreatePage
 } from "@/pages";
 
 export const RouteConfig = [
@@ -371,6 +374,36 @@ export const RouteConfig = [
       </>
     ),
     access_type: ROUTE_ACCESS.AUTH,
+  },
+  {
+    path: ROUTE_PATH.ADMINS.GET,
+    element: (
+      <>
+        <PageTitle title="Show Admin" />
+        <ShowAdminPage />
+      </>
+    ),
+    access_type: ROUTE_ACCESS.PRIVATE,
+  },
+  {
+    path: ROUTE_PATH.ADMINS.CREATE,
+    element: (
+      <>
+        <PageTitle title="Create Admin" />
+        <CreateAccountPage />
+      </>
+    ),
+    access_type: ROUTE_ACCESS.PRIVATE,
+  },
+  {
+    path: ROUTE_PATH.ADMINS.VERIFY,
+    element: (
+      <>
+        <PageTitle title="Verify Admin" />
+        <VerifyCreatePage />
+      </>
+    ),
+    access_type: ROUTE_ACCESS.PRIVATE,
   },
   {
     path: ROUTE_PATH.RESET_PASSWORD_VERIFY,

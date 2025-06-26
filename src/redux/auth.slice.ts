@@ -1,6 +1,6 @@
 import { authApi } from "@/api/endpoints/auth.api";
 import { createSlice } from "@reduxjs/toolkit";
-
+import {AdminsAPI} from "@/api/endpoints/getadmin.api"
 // Define the shape of the initial state
 interface AuthState {
   accessToken: string | null;
@@ -41,6 +41,19 @@ const authSlice = createSlice({
       }
     );
     builder.addMatcher(authApi.endpoints.logout.matchFulfilled, (state) => {
+      state.accessToken = null;
+      state.isAuthenticated = false;
+    });
+     builder.addMatcher(
+      AdminsAPI.endpoints.verifyCreateAdmin.matchFulfilled,
+      (state, action) => {
+        if (action.payload) {
+          state.accessToken = action.payload.loginToken;
+          state.isAuthenticated = !!action.payload.loginToken;
+        }
+      }
+    );
+      builder.addMatcher(AdminsAPI.endpoints.deleteAdmin.matchFulfilled, (state) => {
       state.accessToken = null;
       state.isAuthenticated = false;
     });

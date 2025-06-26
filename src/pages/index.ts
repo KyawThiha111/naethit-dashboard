@@ -42,5 +42,9 @@ export { default as VerifyPage } from "./auth/Verify.page";
 export { default as ResetPasswordPage } from "./auth/ResetPassword.page";
 export { default as ResetPasswordVerifyPage } from "./auth/ResetPasswordVerify.page";
 
+/* Admin */
+export {default as ShowAdminPage} from "./adminaccounts/showadmins.page"
+export {default as CreateAccountPage} from "./adminaccounts/createaccount.page"
+export {default as VerifyCreatePage} from "./adminaccounts/createtokenveri.page"
 // not found
 export { default as NotFoundPage } from "./404/NotFound.page";

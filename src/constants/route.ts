@@ -12,7 +12,11 @@ export const ROUTE_PATH = {
   // ANALYTICS: '/dashboard/analytics',
   // SETTING: '/settings',
   // USER: '/user',
-
+ ADMINS:{
+  GET:"/admins/showadmins",
+  CREATE:"/admins/createaccount",
+  VERIFY:"/admins/verifyaccount"
+ },
   // blog
   BLOG: {
     LIST: "/blogs",

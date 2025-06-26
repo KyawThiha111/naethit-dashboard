@@ -10,6 +10,8 @@ import {
   Notebook,
   ReceiptText,
   Settings,
+  CircleUserRound,
+  CircleUser
   // Ticket,
   // Trash,
   // UserCog,
@@ -51,6 +53,16 @@ export const applicationMenuItems = [
     title: "Dashboard",
     url: "/",
     icon: Home,
+  },
+   {
+    title:"Admins",
+    url:ROUTE_PATH.ADMINS.GET,
+    icon:CircleUserRound
+  },
+   {
+    title:"Create Admin",
+    url:ROUTE_PATH.ADMINS.CREATE,
+    icon:CircleUser
   },
   {
     title: "Requests",

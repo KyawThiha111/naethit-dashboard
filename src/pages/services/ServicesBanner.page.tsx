@@ -12,8 +12,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-//const url = import.meta.env.VITE_BASE_URL;
-const url = "https://naethitasanv2.onrender.com"
+const url = import.meta.env.VITE_BACKEND_URL;
+
 export default function ServicesBannerPage() {
   const [defaultImgs, setDefaultImgs] = useState({
     banner_img: "" as string,
@@ -82,7 +82,7 @@ export default function ServicesBannerPage() {
       ) : (
         <form action="" onSubmit={handleSubmit(handleEdit)}>
           <div>
-            <h3 className="">Edit Home Banner Info</h3>
+            <h3 className="">Edit Service Banner Info</h3>
             <div className=" mt-5 space-y-3">
               <div className=" grid lg:grid-cols-2 gap-5">
                 <div>

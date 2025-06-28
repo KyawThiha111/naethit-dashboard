@@ -5,8 +5,8 @@ import { ROUTE_PATH } from "@/constants/route";
 import { PenSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 
-//const url = import.meta.env.VITE_BASE_URL;
-const url = "https://naethitasanv2.onrender.com"
+const url = import.meta.env.VITE_BACKEND_URL;
+
 export default function FacilitiesPage() {
   const { data: facilities, isLoading } = useGetFacilitiesQuery({});
   if (isLoading) return <p>Loading</p>;

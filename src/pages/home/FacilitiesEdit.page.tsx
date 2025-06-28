@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
+const photoBase_URL = import.meta.env.VITE_BACKEND_URL;
 export default function FacilitiesEditPage() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -76,7 +77,6 @@ export default function FacilitiesEditPage() {
 
   useEffect(() => {
     if (data) {
-      const photoBase_URL = "https://naethitasanv2.onrender.com"
       setValue("clinicname_en", data?.facility?.clinicname_en);
       setValue("clinicname_my", data?.facility?.clinicname_my);
       setValue("openinghr_en", data?.facility?.openinghr_en);

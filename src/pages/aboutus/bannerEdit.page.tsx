@@ -108,8 +108,8 @@ const AboutBannerEdit = () => {
     const formData = new FormData();
     formData.append("titleen", data?.titleen);
     formData.append("titlemy", data?.titlemy);
-    formData.append("abouten", data?.titleen);
-    formData.append("aboutmy", data?.titlemy);
+    formData.append("abouten", data?.abouten);
+    formData.append("aboutmy", data?.aboutmy);
     formData.append("blogtitleen", data?.blogtitleen);
     formData.append("blogtitlemy", data?.blogtitlemy);
     formData.append("blogen", data?.blogen);

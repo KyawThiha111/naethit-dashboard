@@ -5,7 +5,7 @@ import { ROUTE_PATH } from "@/constants/route";
 import { PenSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const api_url = import.meta.env.VITE_BASE_URL;
+const api_url = import.meta.env.VITE_BACKEND_URL;
 
 export default function ServicesPage() {
   const { data, isLoading } = useGetServicesQuery({});
@@ -41,6 +41,13 @@ export default function ServicesPage() {
               <h5 className=" text-lg font-semibold">{item.title_en}</h5>
               <p className=" text-gray-600">{item.description_en}</p>
             </div>
+            <p>Show on:
+              {item?.showonhomepage==="true"?(
+                <span className="text-green-600 text-lg ms-3">Home Page</span>
+              ):(
+                <span className="text-blue-600 text-lg ms-3">Service Page</span>
+              )}
+            </p>
             <div className=" flex justify-between py-2 border-t-2 mt-auto">
               <p>Action :</p>
               <div className=" flex items-center gap-3 ">

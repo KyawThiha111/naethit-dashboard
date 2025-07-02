@@ -3,7 +3,7 @@ import { useGetAllLeadersQuery } from "@/api/endpoints/aboutleader.api";
 import DeleteLeaderBtn from "@/components/action/DeleteLeaderBtn";
 import { SquarePen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-const BACKEND_URL = "https://naethitasanv2.onrender.com";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 export default function GetAllLeaderPage() {
   const { data: LeaderData, isLoading: FetchLoading } = useGetAllLeadersQuery(
     {}

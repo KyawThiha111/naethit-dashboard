@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 export default function ServicesEditPage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ export default function ServicesEditPage() {
 
   useEffect(() => {
     if (serviceDetail) {
-      setPreviewUrl(serviceDetail?.service?.logo);
+      setPreviewUrl(`${BACKEND_URL}${serviceDetail?.service?.logo}`);
       setSelectedImage(serviceDetail?.service?.logo);
       setValue("title_en", serviceDetail?.service?.title_en);
       setValue("title_my", serviceDetail?.service?.title_my);

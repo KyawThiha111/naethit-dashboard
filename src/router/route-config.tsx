@@ -37,10 +37,9 @@ import {
   ShowAdminPage,
   CreateAccountPage,
   VerifyCreatePage,
-  CreateServiceSlidePage,
-  ShowServiceSlidePage
+  ShowServiceSlidePage,
+  CreateServiceSlidePage
 } from "@/pages";
-import CreateServiceSlide from "@/pages/services/CreateServiceSlide.page";
 
 export const RouteConfig = [
   {
@@ -352,7 +351,7 @@ export const RouteConfig = [
     element: (
       <>
         <PageTitle title="ServiceSlide Create" />
-        <CreateServiceSlide />
+        <CreateServiceSlidePage />
       </>
     ),
     access_type: ROUTE_ACCESS.PRIVATE,

@@ -214,6 +214,15 @@ export const controlMenuItems = [
         title: "Banner",
         url: ROUTE_PATH.SERVICES.BANNER,
       },
+      {
+        title: "Slides List",
+        url: ROUTE_PATH.SERVICESLIDES.LIST,
+      },
+      {
+        title: "Create Slides",
+        url: ROUTE_PATH.SERVICESLIDES.CREATE,
+      },
+      
     ],
   },
 

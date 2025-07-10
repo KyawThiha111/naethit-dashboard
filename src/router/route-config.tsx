@@ -36,8 +36,11 @@ import {
   AddCataPage,
   ShowAdminPage,
   CreateAccountPage,
-  VerifyCreatePage
+  VerifyCreatePage,
+  CreateServiceSlidePage,
+  ShowServiceSlidePage
 } from "@/pages";
+import CreateServiceSlide from "@/pages/services/CreateServiceSlide.page";
 
 export const RouteConfig = [
   {
@@ -339,6 +342,27 @@ export const RouteConfig = [
       <>
         <PageTitle title="Service Banner" />
         <ServiceBannerPage />
+      </>
+    ),
+    access_type: ROUTE_ACCESS.PRIVATE,
+  },
+  /* Slides */
+   {
+    path: ROUTE_PATH.SERVICESLIDES.CREATE,
+    element: (
+      <>
+        <PageTitle title="ServiceSlide Create" />
+        <CreateServiceSlide />
+      </>
+    ),
+    access_type: ROUTE_ACCESS.PRIVATE,
+  },
+   {
+    path: ROUTE_PATH.SERVICESLIDES.LIST,
+    element: (
+      <>
+        <PageTitle title="ServiceSlide List" />
+        <ShowServiceSlidePage />
       </>
     ),
     access_type: ROUTE_ACCESS.PRIVATE,

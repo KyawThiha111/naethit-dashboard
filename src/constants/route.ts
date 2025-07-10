@@ -77,6 +77,11 @@ export const ROUTE_PATH = {
     EDIT: "/services/edit/:id",
     BANNER: "/services/banner",
   },
+
+  SERVICESLIDES:{
+   CREATE:"/serviceslide/create",
+   LIST:"/serviceslide/list"
+  },
   // SYSTEM: {
   //   USER_CREATION: '/system/user',
   //   AGENT_CREATION: '/system/agent',

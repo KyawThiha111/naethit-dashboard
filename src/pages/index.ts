@@ -35,6 +35,8 @@ export { default as ServicePage } from "./services/Services.page";
 export { default as ServiceCreatePage } from "./services/ServicesCreate.page";
 export { default as ServiceEditPage } from "./services/ServicesEdit.page";
 export { default as ServiceBannerPage } from "./services/ServicesBanner.page";
+export { default as ShowServiceSlidePage } from "./services/ServiceSlides.page"
+export { default as CreateServiceSlidePage } from "./services/CreateServiceSlide.page"
 
 // auth
 export { default as LoginPage } from "./auth/Login.page";

@@ -45,6 +45,13 @@ type FacilitieType = {
   address_en:string;
   address_my:string;
   mapurl: string;
+  mon_opening_hr:string,
+  tue_opening_hr:string,
+  wed_opening_hr:string,
+  thurs_opening_hr:string,
+  fri_opening_hr:string,
+  sat_opening_hr:string,
+  sun_opening_hr:string,
   photo: string;
 };
 

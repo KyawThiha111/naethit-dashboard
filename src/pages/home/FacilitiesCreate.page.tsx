@@ -218,6 +218,21 @@ export default function FacilitiesCreatePage() {
                 </div>
               )}
             </div>
+               {/* Weekday Opening Hours */}
+            {[
+              ["mon_opening_hr", "Monday"],
+              ["tue_opening_hr", "Tuesday"],
+              ["wed_opening_hr", "Wednesday"],
+              ["thurs_opening_hr", "Thursday"],
+              ["fri_opening_hr", "Friday"],
+              ["sat_opening_hr", "Saturday"],
+              ["sun_opening_hr", "Sunday"],
+            ].map(([key, label]) => (
+              <div className="space-y-1" key={key}>
+                <Label className="text-gray-500 block">{label} Opening hr:</Label>
+                <Input className="bg-white" {...register(key as any, { required: true })} />
+              </div>
+            ))}
             <div className=" col-span-1 lg:col-span-2">
               <Button className=" bg-secondary-yellow text-white hover:bg-secondary-yellow">
                 {isLoading ? "loading" : "Create"}

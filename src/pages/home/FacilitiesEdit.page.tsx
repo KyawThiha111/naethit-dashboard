@@ -15,18 +15,16 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const photoBase_URL = import.meta.env.VITE_BACKEND_URL;
+
 export default function FacilitiesEditPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { data, isLoading: isSingleLoading } = useGetFacilitieDetailQuery({
-    id,
-  });
+  const { data, isLoading: isSingleLoading } = useGetFacilitieDetailQuery({ id });
   const [updateFacilitie, { isLoading }] = useEditFacilitieMutation();
-  const { register, handleSubmit, setValue } =
-    useForm<Omit<FacilitieType, "_id">>();
+  const { register, handleSubmit, setValue } = useForm<Omit<FacilitieType, "_id">>();
 
   const handleEdit = async (datatoupload: Omit<FacilitieType, "_id">) => {
     if (!selectedImage) return alert("Please choose photo");
@@ -45,6 +43,7 @@ export default function FacilitiesEditPage() {
       toast.error(error.data.message);
     }
   };
+
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
 
@@ -81,22 +80,30 @@ export default function FacilitiesEditPage() {
       setValue("clinicname_my", data?.facility?.clinicname_my);
       setValue("openinghr_en", data?.facility?.openinghr_en);
       setValue("openinghr_my", data?.facility?.openinghr_my);
-      setValue("address_en", data?.facility?.address_en)
-      setValue("address_my", data?.facility?.address_my)
+      setValue("address_en", data?.facility?.address_en);
+      setValue("address_my", data?.facility?.address_my);
       setValue("mapurl", data?.facility?.mapurl);
+      setValue("mon_opening_hr", data?.facility?.mon_opening_hr);
+      setValue("tue_opening_hr", data?.facility?.tue_opening_hr);
+      setValue("wed_opening_hr", data?.facility?.wed_opening_hr);
+      setValue("thurs_opening_hr", data?.facility?.thurs_opening_hr);
+      setValue("fri_opening_hr", data?.facility?.fri_opening_hr);
+      setValue("sat_opening_hr", data?.facility?.sat_opening_hr);
+      setValue("sun_opening_hr", data?.facility?.sun_opening_hr);
       setPreviewUrl(`${photoBase_URL}${data?.facility?.photo}`);
       setSelectedImage(data?.facility?.photo);
     }
   }, [data]);
 
   if (isSingleLoading) {
-    return <div className=" w-full min-h-[70vh] bg-gray-200 "></div>;
+    return <div className="w-full min-h-[70vh] bg-gray-200"></div>;
   }
+
   return (
     <div>
       <div>
         <button
-          className=" flex items-center gap-3 font-medium mb-5 cursor-pointer"
+          className="flex items-center gap-3 font-medium mb-5 cursor-pointer"
           onClick={() => navigate(ROUTE_PATH.HOME.FACILITIES.LIST)}
         >
           <ChevronLeft size={20} />
@@ -104,72 +111,44 @@ export default function FacilitiesEditPage() {
         </button>
       </div>
       <h3>Edit Testimonial</h3>
-      <div className=" mt-5">
-        <form action="" onSubmit={handleSubmit(handleEdit)}>
-          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-3">
-            <div className=" space-y-1">
-              <Label className=" text-gray-500 block">Clinic Name (en)</Label>
-              <Input
-                type="text"
-                className=" bg-white"
-                {...register("clinicname_en", { required: true })}
-              />
+      <div className="mt-5">
+        <form onSubmit={handleSubmit(handleEdit)}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            <div className="space-y-1">
+              <Label className="text-gray-500 block">Clinic Name (en)</Label>
+              <Input className="bg-white" {...register("clinicname_en", { required: true })} />
             </div>
-            <div className=" space-y-1">
-              <Label className=" text-gray-500 block">Clinic Name (my)</Label>
-              <Input
-                type="text"
-                className=" bg-white"
-                {...register("clinicname_my", { required: true })}
-              />
+            <div className="space-y-1">
+              <Label className="text-gray-500 block">Clinic Name (my)</Label>
+              <Input className="bg-white" {...register("clinicname_my", { required: true })} />
             </div>
-            <div className=" space-y-1">
-              <Label className=" text-gray-500 block">Opening Hour (en)</Label>
-              <Input
-                type="text"
-                className=" bg-white"
-                {...register("openinghr_en", { required: true })}
-              />
+            <div className="space-y-1">
+              <Label className="text-gray-500 block">Opening Hour (en)</Label>
+              <Input className="bg-white" {...register("openinghr_en", { required: true })} />
             </div>
-            <div className=" space-y-1">
-              <Label className=" text-gray-500 block">Opening Hour (my)</Label>
-              <Input
-                type="text"
-                className=" bg-white"
-                {...register("openinghr_my", { required: true })}
-              />
+            <div className="space-y-1">
+              <Label className="text-gray-500 block">Opening Hour (my)</Label>
+              <Input className="bg-white" {...register("openinghr_my", { required: true })} />
             </div>
-            {/* Address En */}
-            <div className=" space-y-1">
-              <Label className=" text-gray-500 block">Address Text (en)</Label>
-              <Input
-                type="text"
-                className=" bg-white"
-                {...register("address_en", { required: true })}
-              />
+            <div className="space-y-1">
+              <Label className="text-gray-500 block">Address Text (en)</Label>
+              <Input className="bg-white" {...register("address_en", { required: true })} />
             </div>
-            {/* Address My */}
-            <div className=" space-y-1">
-              <Label className=" text-gray-500 block">Address Text (my)</Label>
-              <Input
-                type="text"
-                className=" bg-white"
-                {...register("address_my", { required: true })}
-              />
+            <div className="space-y-1">
+              <Label className="text-gray-500 block">Address Text (my)</Label>
+              <Input className="bg-white" {...register("address_my", { required: true })} />
             </div>
-            <div className=" space-y-1">
-              <Label htmlFor="patient-note-en" className=" text-gray-500 block">
-                Map Url
-              </Label>
+            <div className="space-y-1 col-span-1 lg:col-span-2">
+              <Label htmlFor="patient-note-en" className="text-gray-500 block">Map Url</Label>
               <Textarea
                 id="patient-note-en"
                 rows={5}
                 {...register("mapurl", { required: true })}
-                className=" bg-white"
+                className="bg-white"
               />
             </div>
-            <div className={`flex flex-col col-span-1 lg:col-span-2`}>
-              <Label className=" text-gray-600 mb-2">Upload Image</Label>
+            <div className="flex flex-col col-span-1 lg:col-span-2">
+              <Label className="text-gray-600 mb-2">Upload Image</Label>
               <input
                 type="file"
                 ref={fileInputRef}
@@ -177,13 +156,12 @@ export default function FacilitiesEditPage() {
                 className="hidden"
                 accept="image/*"
               />
-
               {previewUrl ? (
                 <div className="relative group w-fit bg-white">
                   <img
                     src={previewUrl}
                     alt="Preview"
-                    className=" h-40 w-auto object-cover rounded-lg border border-gray-200"
+                    className="h-40 w-auto object-cover rounded-lg border border-gray-200"
                   />
                   <button
                     type="button"
@@ -198,12 +176,7 @@ export default function FacilitiesEditPage() {
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
@@ -219,10 +192,7 @@ export default function FacilitiesEditPage() {
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                       d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
@@ -231,16 +201,32 @@ export default function FacilitiesEditPage() {
                   </span>
                 </div>
               )}
-
               {selectedImage && (
                 <div className="mt-2 text-sm text-gray-500 truncate max-w-xs">
                   {selectedImage.name}
                 </div>
               )}
             </div>
-            <div className=" col-span-1 lg:col-span-2">
-              <Button className=" bg-secondary-yellow text-white hover:bg-secondary-yellow">
-                {isLoading ? "loading" : "Update"}
+
+            {/* Weekday Opening Hours */}
+            {[
+              ["mon_opening_hr", "Monday"],
+              ["tue_opening_hr", "Tuesday"],
+              ["wed_opening_hr", "Wednesday"],
+              ["thurs_opening_hr", "Thursday"],
+              ["fri_opening_hr", "Friday"],
+              ["sat_opening_hr", "Saturday"],
+              ["sun_opening_hr", "Sunday"],
+            ].map(([key, label]) => (
+              <div className="space-y-1" key={key}>
+                <Label className="text-gray-500 block">{label} Opening hr:</Label>
+                <Input className="bg-white" {...register(key as any, { required: true })} />
+              </div>
+            ))}
+
+            <div className="col-span-1 lg:col-span-2">
+              <Button className="bg-secondary-yellow text-white hover:bg-secondary-yellow">
+                {isLoading ? "Loading..." : "Update"}
               </Button>
             </div>
           </div>

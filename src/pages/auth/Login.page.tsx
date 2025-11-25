@@ -13,7 +13,8 @@ export default function LoginPage() {
     try {
       const res = await login({ ...data }).unwrap();
       if (res.success) {
-        navigate("/verify");
+        console.log(res)
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
